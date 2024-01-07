@@ -20,28 +20,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"daihang.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="2017年第一场双红会，和以往都来有一些不太一样。话说小半个赛季过去，几乎完全不同的舆论。上次曼联是勉强保平，大家都说穆鸟已经过时，渣叔和瓜一样带来革新。现在专家们预测的则是曼联多半要赢。这人言啊… 半场小结　　非常有趣的一场比赛，两支球队都把自己的风格打出来了。　　这场比赛之前，如果有人说有一只队伍能够同时限制住卡里克，埃雷拉和博格巴的出球，我肯定是不信的，利物浦可以说是做到了… 当然，博格">
+<meta name="description" content="背景买的小主机自带正版win11，虽然用hyperV应该性能更好，但我而言就只是个测试和局域网内服务，所以沿用vagrant+virtualbox这对我最熟悉的组合就够了，所以只要解决了VirtualBox特定虚拟机能够开机启动就行，当然需要免登录(unattended) 具体操作发现网上有些文章要么不太正确要么要求登录，记录一下我自己实验成功的操作方法以备后用：  生成BAT文件，里面放入vir">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20170115主v利物浦-又是一年双红会">
-<meta property="og:url" content="https://daihang.github.io/2017/01/16/20170115%E4%B8%BBv%E5%88%A9%E7%89%A9%E6%B5%A6-%E5%8F%88%E6%98%AF%E4%B8%80%E5%B9%B4%E5%8F%8C%E7%BA%A2%E4%BC%9A/index.html">
+<meta property="og:title" content="Windows开机启动virtualbox虚拟机(免登录)">
+<meta property="og:url" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/index.html">
 <meta property="og:site_name" content="daihang.think">
-<meta property="og:description" content="2017年第一场双红会，和以往都来有一些不太一样。话说小半个赛季过去，几乎完全不同的舆论。上次曼联是勉强保平，大家都说穆鸟已经过时，渣叔和瓜一样带来革新。现在专家们预测的则是曼联多半要赢。这人言啊… 半场小结　　非常有趣的一场比赛，两支球队都把自己的风格打出来了。　　这场比赛之前，如果有人说有一只队伍能够同时限制住卡里克，埃雷拉和博格巴的出球，我肯定是不信的，利物浦可以说是做到了… 当然，博格">
+<meta property="og:description" content="背景买的小主机自带正版win11，虽然用hyperV应该性能更好，但我而言就只是个测试和局域网内服务，所以沿用vagrant+virtualbox这对我最熟悉的组合就够了，所以只要解决了VirtualBox特定虚拟机能够开机启动就行，当然需要免登录(unattended) 具体操作发现网上有些文章要么不太正确要么要求登录，记录一下我自己实验成功的操作方法以备后用：  生成BAT文件，里面放入vir">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2017-01-15T16:55:39.000Z">
-<meta property="article:modified_time" content="2021-06-13T16:55:25.664Z">
+<meta property="og:image" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224703076.png">
+<meta property="og:image" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224739192.png">
+<meta property="og:image" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224911252.png">
+<meta property="og:image" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224930027.png">
+<meta property="og:image" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224948257.png">
+<meta property="article:published_time" content="2024-01-04T14:15:28.000Z">
+<meta property="article:modified_time" content="2024-01-07T15:46:17.809Z">
 <meta property="article:author" content="Dai Hang">
-<meta property="article:tag" content="ManU">
+<meta property="article:tag" content="VirtualBox">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224703076.png">
 
 
-<link rel="canonical" href="https://daihang.github.io/2017/01/16/20170115%E4%B8%BBv%E5%88%A9%E7%89%A9%E6%B5%A6-%E5%8F%88%E6%98%AF%E4%B8%80%E5%B9%B4%E5%8F%8C%E7%BA%A2%E4%BC%9A/">
+<link rel="canonical" href="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://daihang.github.io/2017/01/16/20170115%E4%B8%BBv%E5%88%A9%E7%89%A9%E6%B5%A6-%E5%8F%88%E6%98%AF%E4%B8%80%E5%B9%B4%E5%8F%8C%E7%BA%A2%E4%BC%9A/","path":"2017/01/16/20170115主v利物浦-又是一年双红会/","title":"20170115主v利物浦-又是一年双红会"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/","path":"2024/01/04/Windows开机启动virtualbox虚拟机-免登录/","title":"Windows开机启动virtualbox虚拟机(免登录)"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20170115主v利物浦-又是一年双红会 | daihang.think</title>
+<title>Windows开机启动virtualbox虚拟机(免登录) | daihang.think</title>
   
 
 
@@ -147,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8A%E5%9C%BA%E5%B0%8F%E7%BB%93"><span class="nav-text">半场小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%88%E5%9C%BA%E5%B0%8F%E7%BB%93"><span class="nav-text">终场小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PS"><span class="nav-text">PS</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%93%8D%E4%BD%9C"><span class="nav-text">具体操作</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -160,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -171,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -210,7 +216,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://daihang.github.io/2017/01/16/20170115%E4%B8%BBv%E5%88%A9%E7%89%A9%E6%B5%A6-%E5%8F%88%E6%98%AF%E4%B8%80%E5%B9%B4%E5%8F%8C%E7%BA%A2%E4%BC%9A/">
+    <link itemprop="mainEntityOfPage" href="https://daihang.github.io/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -223,7 +229,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20170115主v利物浦-又是一年双红会
+          Windows开机启动virtualbox虚拟机(免登录)
         </h1>
 
         <div class="post-meta-container">
@@ -234,24 +240,15 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2017-01-16 00:55:39" itemprop="dateCreated datePublished" datetime="2017-01-16T00:55:39+08:00">2017-01-16</time>
+      <time title="创建时间：2024-01-04 22:15:28" itemprop="dateCreated datePublished" datetime="2024-01-04T22:15:28+08:00">2024-01-04</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 00:55:25" itemprop="dateModified" datetime="2021-06-14T00:55:25+08:00">2021-06-14</time>
+        <time title="修改时间：2024-01-07 23:46:17" itemprop="dateModified" datetime="2024-01-07T23:46:17+08:00">2024-01-07</time>
       </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%96%87%E7%AB%A0/" itemprop="url" rel="index"><span itemprop="name">文章</span></a>
-        </span>
-    </span>
 
   
   
@@ -262,8 +259,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2017/01/16/20170115%E4%B8%BBv%E5%88%A9%E7%89%A9%E6%B5%A6-%E5%8F%88%E6%98%AF%E4%B8%80%E5%B9%B4%E5%8F%8C%E7%BA%A2%E4%BC%9A/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/16/20170115主v利物浦-又是一年双红会/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/01/04/Windows开机启动virtualbox虚拟机-免登录/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -277,11 +274,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>　　2017年第一场双红会，和以往都来有一些不太一样。话说小半个赛季过去，几乎完全不同的舆论。上次曼联是勉强保平，大家都说穆鸟已经过时，渣叔和瓜一样带来革新。现在专家们预测的则是曼联多半要赢。这人言啊…</p>
-<h2 id="半场小结"><a href="#半场小结" class="headerlink" title="半场小结"></a>半场小结</h2><p>　　非常有趣的一场比赛，两支球队都把自己的风格打出来了。<br>　　这场比赛之前，如果有人说有一只队伍能够同时限制住卡里克，埃雷拉和博格巴的出球，我肯定是不信的，利物浦可以说是做到了… 当然，博格巴今天的心态有点问题。<br>　　想当年，曼联在英超横的时候，就是对上猛的队我比你细腻，对上细腻的队，我比你猛（是的，这里单指娜娜）。实际上这么干的基础是，对于猛队，我魔的猛也能做到针尖对麦芒。而在范厨子时代，我个人最痛心疾首的就是这种铁血精神的消失。今天，这种精气神回来了。面对疯狂逼抢的红军，我魔基本上做到了拼抢上不落下风，细腻上还能略胜一筹。当然远不如对阵其他队的时候来的流畅，毕竟，渣叔的利物浦真的是太勤勉了…</p>
-<h2 id="终场小结"><a href="#终场小结" class="headerlink" title="终场小结"></a>终场小结</h2><p>　　几乎不能奢求更多了，太过瘾了。那一阵82：18的控球率的时候（不是范厨师的横传），相信不少人和我一样找回当年心悸的感觉了，你看小贝这不都紧张的快咬手指头了。<br>　　真是斗法啊！<br>　　我觉得穆鸟应该是这么想的：上半场抢的那么凶，多少该有点体力下降吧，我也上个能抢的（卡里克下，鲁尼上）狂抢你一下，反正今天卡神也被抢的有点失常。我上半场没你拼的凶，这会体力上拼刺刀我也该有点优势吧。 - 然后控球率就到82：18了，而且多是向前的传球，利物浦一度风声鹤唳…<br>　　我觉得渣叔应该这么想的：兄弟们，顶住，相信自己，我们一定守的住，然后该进攻的还得一如既往往上涌，只要逮住一个机会就能解决比赛了，毕竟我们一球领先啊。我靠，这危险的有点过头啊，前场完全拿不住球了还打什么反击，库蒂尼奥，小伙子，靠你了，前场稳住，曼联现在压上很大，你只要抓住一次机会就够了，我知道你最擅长干这个了！　－　然后就是库蒂尼奥好几个妙传，但队友直面门将的打门都打的很差（德赫亚威武，当然体力下降也是原因）。<br>　　再然后，就真的是拼刺刀了，一如当年的双红会。只是这个利物浦远比当年的利物浦来的华丽，现在曼联也算近几个赛季最好的时候了。<br>　　所以真的是太过瘾了。如果还有什么奢求的话，那就是库蒂尼奥重伤刚刚复出，马内又参加非洲杯去了，现在的利物浦的进攻还是要差不少的，这点从库蒂尼奥上场后巨大作用就可见一斑。真想看看满血的利物浦和曼联对上是个什么感觉。</p>
-<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>　　Pogback! welcome bac, Pogba. 继续练级吧，现在的这点失误值得曼联为你买单，因为你还远没有达到你应该到的高度，让我们拭目以待…<br>　　Thanks，大奉先。就是玩ＦＭ买老将，也应该没你这么好的传帮带效果。如果博格巴，马球王，甚至拉师傅将来成为巨星而且还有点谦虚的话，他们一定会感激和你做队友的这段日子．．．　　
-　　</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>买的小主机自带正版win11，虽然用hyperV应该性能更好，但我而言就只是个测试和局域网内服务，所以沿用vagrant+virtualbox这对我最熟悉的组合就够了，所以只要解决了VirtualBox特定虚拟机能够开机启动就行，当然需要免登录(unattended)</p>
+<h2 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h2><p>发现网上有些文章要么不太正确要么要求登录，记录一下我自己实验成功的操作方法以备后用：</p>
+<ol>
+<li>生成BAT文件，里面放入virtualbox headless 启动特定VM的命令行</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查询VM名的命令行</span></span><br><span class="line"><span class="comment"># cd C:\Program Files\Oracle\VirtualBox\</span></span><br><span class="line"><span class="comment">#  .\VBoxManage.exe list vms</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># BAT操作</span></span><br><span class="line"><span class="string">&quot;C:\Program Files\Oracle\VirtualBox\VBoxManage.exe&quot;</span> startvm <span class="string">&quot;DietPi_VirtualBox-x86_64-Bookworm&quot;</span> --<span class="built_in">type</span> headless</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li><p>通过计算机管理下的计划任务新增一个任务，该任务需要设置不登陆也执行，并在启动时执行上述BAT脚本</p>
+<p><img src="/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224703076.png" alt="image-20240104224703076"></p>
+</li>
+</ol>
+<p><img src="/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224739192.png" alt="image-20240104224739192"></p>
+<p><img src="/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224911252.png" alt="image-20240104224911252"></p>
+<p><img src="/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224930027.png" alt="image-20240104224930027"></p>
+<p><img src="/2024/01/04/Windows%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8virtualbox%E8%99%9A%E6%8B%9F%E6%9C%BA-%E5%85%8D%E7%99%BB%E5%BD%95/image-20240104224948257.png" alt="image-20240104224948257"></p>
 
     </div>
 
@@ -291,21 +301,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/ManU/" rel="tag"># ManU</a>
+              <a href="/tags/VirtualBox/" rel="tag"># VirtualBox</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2017/01/14/focus%E5%9C%A8%E9%87%8D%E8%A6%81%E7%9A%84%E4%BA%8B%E4%B8%8A%E5%92%8C%E5%8F%96%E8%88%8D/" rel="prev" title="focus在重要的事上和取舍">
-                  <i class="fa fa-chevron-left"></i> focus在重要的事上和取舍
+                <a href="/2021/12/26/%E5%8D%87%E7%BA%A7blog%E5%88%B0hexo6%E4%B8%8Enext8/" rel="prev" title="升级blog到hexo6与next8">
+                  <i class="fa fa-chevron-left"></i> 升级blog到hexo6与next8
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2017/01/17/%E6%85%A2%E7%83%AD%E7%9A%84%E7%89%B9%E7%82%B9/" rel="next" title="慢热的特点">
-                  慢热的特点 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -331,7 +338,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
