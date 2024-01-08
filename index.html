@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -167,7 +167,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -196,6 +196,123 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://daihang.github.io/2024/01/08/typora%E5%86%99hexo-blog%E8%87%AA%E5%8A%A8%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Dai Hang">
+      <meta itemprop="description" content="knowing doing thinking">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="daihang.think">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/01/08/typora%E5%86%99hexo-blog%E8%87%AA%E5%8A%A8%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" class="post-title-link" itemprop="url">typora写hexo blog自动插入图片</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-01-08 23:24:52" itemprop="dateCreated datePublished" datetime="2024-01-08T23:24:52+08:00">2024-01-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2024-01-09 07:14:39" itemprop="dateModified" datetime="2024-01-09T07:14:39+08:00">2024-01-09</time>
+      </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2024/01/08/typora%E5%86%99hexo-blog%E8%87%AA%E5%8A%A8%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2024/01/08/typora写hexo-blog自动插入图片/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>喜欢用typora写markdown文档， hexo也断断续续用了好久，但是用typora编辑hexo的post时，在默认配置下typora自动插入的图片在hexo blog中不能正常显示。</p>
+<h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><ol>
+<li>post_asset_folder配置关联hexo和typera. hexo的可以通过post_asset_folder配置在new post的时间建一个同名文件夹来保存图片类的资源， 而typero也可配置自动插入图片模式来使用正确的相对路径引用同名文件夹的图片。</li>
+<li>hexo本身的原理是将markdown的源格式转化为html的静态文件，其转换逻辑使可以设置细节。经过合理的设置，可以将最终的HTML中引用到正确的图片位置。</li>
+</ol>
+<h2 id="整体过程"><a href="#整体过程" class="headerlink" title="整体过程"></a>整体过程</h2><ol>
+<li>配置typora，使自动插入的图片放置到对应的相对路径目录，并且在markdown中使用hexo可正常转换的相对路径格式；</li>
+<li>配置hexo post_asset_folder，从而在new post的时候可生成正确目录；</li>
+<li>配置hexo渲染器，并确保转换后的静态post可引用到对应的图片文件；</li>
+</ol>
+<h2 id="配置实例"><a href="#配置实例" class="headerlink" title="配置实例"></a>配置实例</h2><ol>
+<li>hexo安装渲染器. Blog根目录命令行跑一下指令</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-renderer-marked --save</span><br></pre></td></tr></table></figure>
+
+<p>安装成功之后，在package.json中可发现</p>
+<p><img src="/2024/01/08/typora%E5%86%99hexo-blog%E8%87%AA%E5%8A%A8%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/image-20240108234623253.png" alt="image-20240108234623253"></p>
+<ol start="2">
+<li>配置_config.yml，使能post_asset_folder与渲染器配置</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>配置typora, 使图片插入到对应相对目录，并在在markdown中使用想对路径来引用图片</li>
+</ol>
+<p><img src="/2024/01/08/typora%E5%86%99hexo-blog%E8%87%AA%E5%8A%A8%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/image-20240109001238336.png" alt="image-20240109001238336"></p>
+<ol start="4">
+<li>实测。当配置完成后，可以通过hexo CLI还创建new post并发布，可以发现在typora编辑时和发布后的静态网站上，图片都可以正常显示</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新建post与对应资源目录</span></span><br><span class="line">npx hexo new <span class="string">&quot;test new post&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用typora编辑post的markdown文件,尝试自动插入图片</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地查看可发现图片正常显示</span></span><br><span class="line">npx hexo clean</span><br><span class="line">npx hexo g</span><br><span class="line">npx hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布到静态网站也可以正常显示</span></span><br><span class="line">npx hexo d</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -236,7 +353,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2024-01-07 23:46:17" itemprop="dateModified" datetime="2024-01-07T23:46:17+08:00">2024-01-07</time>
+        <time title="修改时间：2024-01-07 23:53:18" itemprop="dateModified" datetime="2024-01-07T23:53:18+08:00">2024-01-07</time>
       </span>
 
   
@@ -263,7 +380,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>买的小主机自带正版win11，虽然用hyperV应该性能更好，但我而言就只是个测试和局域网内服务，所以沿用vagrant+virtualbox这对我最熟悉的组合就够了，所以只要解决了VirtualBox特定虚拟机能够开机启动就行，当然需要免登录(unattended)</p>
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>买的小主机自带正版win11当服务器，虽然用hyperV应该性能更好，但对我而言就只是跑跑局域网内测试和服务，沿用vagrant+virtualbox这对我熟悉的组合够用了</p>
+<p>所以只要解决了VirtualBox特定虚拟机能够开机自动启动提供服务即可，当然需要免登录(unattended)windows</p>
 <h2 id="具体操作"><a href="#具体操作" class="headerlink" title="具体操作"></a>具体操作</h2><p>发现网上有些文章要么不太正确要么要求登录，记录一下我自己实验成功的操作方法以备后用：</p>
 <ol>
 <li>生成BAT文件，里面放入virtualbox headless 启动特定VM的命令行</li>
@@ -943,7 +1061,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 00:55:25" itemprop="dateModified" datetime="2021-06-14T00:55:25+08:00">2021-06-14</time>
+        <time title="修改时间：2024-01-08 01:28:54" itemprop="dateModified" datetime="2024-01-08T01:28:54+08:00">2024-01-08</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1077,102 +1195,6 @@
     <div class="post-body" itemprop="articleBody">
           <blockquote>
 <p>总是高估自己的主观能动性，todolist经常不能如预期完成。今天看到一个比较形象的类比，虽然不能直接指导，但可以在制定todolist的时候找类似的感觉 : “踮踮脚就能够到！”</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://daihang.github.io/2017/01/11/%E6%95%99%E8%82%B2%E9%87%8D%E8%A6%81%E6%8A%80%E5%B7%A7-%E6%85%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Dai Hang">
-      <meta itemprop="description" content="knowing doing thinking">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="daihang.think">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2017/01/11/%E6%95%99%E8%82%B2%E9%87%8D%E8%A6%81%E6%8A%80%E5%B7%A7-%E6%85%A2/" class="post-title-link" itemprop="url">教育重要技巧-慢</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2017-01-11 23:01:20" itemprop="dateCreated datePublished" datetime="2017-01-11T23:01:20+08:00">2017-01-11</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-06-14 00:55:25" itemprop="dateModified" datetime="2021-06-14T00:55:25+08:00">2021-06-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/" itemprop="url" rel="index"><span itemprop="name">碎碎念</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2017/01/11/%E6%95%99%E8%82%B2%E9%87%8D%E8%A6%81%E6%8A%80%E5%B7%A7-%E6%85%A2/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/01/11/教育重要技巧-慢/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>今天老婆参加家长会，有一个重要心得，就是慢。深有同感，具体可以有很多引申，但我觉得最重要的首先就是家长不要急躁，让孩子慢慢的成长。一个好习惯，一天是不能真正养成的，一定好好陪着孩子一起，慢慢来。不要轻易让社会上一些浮躁的东西过于影响我们最珍贵的亲子关系…</p>
 </blockquote>
 
       
